@@ -1,5 +1,6 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 val ktorVersion = "1.6.8"
+val logbackVersion = "1.2.5"
 
 plugins {
     kotlin("jvm") version "1.6.10"
@@ -16,6 +17,9 @@ repositories {
 dependencies {
     implementation("io.ktor:ktor-client-core:$ktorVersion")
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
+    implementation("io.ktor:ktor-client-logging:$ktorVersion")
+    implementation("ch.qos.logback:logback-classic:$logbackVersion")
+
     testImplementation(kotlin("test"))
 }
 
