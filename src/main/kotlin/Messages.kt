@@ -33,7 +33,8 @@ suspend fun deleteMessage(id: String): String {
         return "No message by that ID"
     }
     return try {
-        val response: HttpStatement = client.delete("$endpoint/messages/$id")
+        val operation: HttpStatement = client.delete("$endpoint/messages/$id")
+        operation.execute()
         "Removed message ${oldMessage.prettyPrint()}"
     } catch (t: Throwable) {
         "Cannot remove message"
