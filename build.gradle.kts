@@ -4,6 +4,7 @@ val logbackVersion = "1.2.5"
 
 plugins {
     kotlin("jvm") version "1.6.10"
+    kotlin("plugin.serialization") version "1.6.10"
     application
 }
 
@@ -19,7 +20,7 @@ dependencies {
     implementation("io.ktor:ktor-client-cio:$ktorVersion")
     implementation("io.ktor:ktor-client-logging:$ktorVersion")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
-
+    implementation("io.ktor:ktor-client-serialization:$ktorVersion")
     testImplementation(kotlin("test"))
 }
 
