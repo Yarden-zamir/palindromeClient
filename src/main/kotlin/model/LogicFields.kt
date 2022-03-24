@@ -1,3 +1,5 @@
+package model
+
 import kotlin.reflect.KFunction1
 
 val logicFieldsList = LogicFields()

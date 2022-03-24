@@ -1,12 +1,11 @@
+package model
+
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import java.time.LocalDateTime
 
-val serializer = Json {
-    encodeDefaults = true
-    prettyPrint = true
-}
+
 
 @Serializable
 data class Message(
