@@ -53,3 +53,4 @@ build/test-results
 
 # other random things
 .idea/libraries/KotlinJavaRuntime.xml
+.gradle/7.1/executionHistory/executionHistory.bin

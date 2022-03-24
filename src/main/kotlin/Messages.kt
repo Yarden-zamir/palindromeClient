@@ -1,7 +1,9 @@
+import ext.prettyPrint
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 import io.ktor.http.*
-import model.serializer
+import kotlinx.serialization.decodeFromString
+import model.Message
 
 suspend fun updateMessage(args: String): String {
     val id = args.split(" ")[0].toIntOrNull() ?: "Failed to retrieve message, bad ID"
@@ -26,7 +28,7 @@ suspend fun updateMessage(args: String): String {
 suspend fun deleteMessage(id: String): String {
     val oldMessage: Message = try {
         val response: HttpStatement = client.get("$endpoint/messages/$id")
-        serializer.decodeFromString<Message>(response.receive())
+        serializer.decodeFromString(response.receive())
     } catch (t: Throwable) {
         return "No message by that ID"
     }
@@ -73,8 +75,4 @@ suspend fun getMessages(): String {
     } catch (t: Throwable) {
         "No messages ):    add new messages with `add message - {text}`"
     }
-}
-
-suspend fun UpdateMessage(text: String): String {
-    return ""
 }

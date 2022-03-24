@@ -10,10 +10,9 @@ class LogicFields : ArrayList<KFunction1<Message, String>>() {
 }
 
 fun Message.evaluateLogicFields(): Map<String, String> {
-    var result: MutableMap<String, String> = mutableMapOf()
+    val result = mutableMapOf<String, String>()
     if (logicFieldsList.enabled) logicFieldsList.forEach {
         result[it.name.lowercase()] = it.invoke(this)
     }
-
     return result
 }
